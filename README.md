@@ -5,8 +5,8 @@ Terraform
 
 ```sh
 $ terraform plan \
-  -var 'access_key=$TERRAFORM_AWS_ACCESS_KEY' \
-  -var 'secret_key=$TERRAFORM_AWS_SECRET_KEY'
+  -var 'access_key='$TERRAFORM_AWS_ACCESS_KEY \
+  -var 'secret_key='$TERRAFORM_AWS_SECRET_KEY
 
 ```
 
@@ -17,8 +17,8 @@ Generate and show an execution plan
 
 ```sh
 $ terraform apply \
-  -var 'access_key=$TERRAFORM_AWS_ACCESS_KEY' \
-  -var 'secret_key=$TERRAFORM_AWS_SECRET_KEY'
+  -var 'access_key='$TERRAFORM_AWS_ACCESS_KEY \
+  -var 'secret_key='$TERRAFORM_AWS_SECRET_KEY
 ```
 
 Builds or changes infrastructure
@@ -35,8 +35,8 @@ Inspect Terraform state or plan
 
 ```sh
 $ terraform destroy \
-  -var 'access_key=$TERRAFORM_AWS_ACCESS_KEY' \
-  -var 'secret_key=$TERRAFORM_AWS_SECRET_KEY'
+  -var 'access_key='$TERRAFORM_AWS_ACCESS_KEY \
+  -var 'secret_key='$TERRAFORM_AWS_SECRET_KEY
 ```
 
 Completely destroy the Terraform-managed infrastructure
