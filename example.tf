@@ -26,3 +26,13 @@ resource "aws_sqs_queue" "terraform_queue" {
   receive_wait_time_seconds = 10
   redrive_policy = "{\"deadLetterTargetArn\":\"${aws_sqs_queue.terraform_queue_deadletter.arn}\",\"maxReceiveCount\":4}"
 }
+
+resource "aws_sns_topic" "terraform_updates" {
+  name = "terraform-updates-topic"
+}
+
+resource "aws_sns_topic_subscription" "terraform_updates_sqs_target" {
+    topic_arn = "${aws_sns_topic.terraform_updates.arn}"
+    protocol  = "sqs"
+    endpoint  = "${aws_sqs_queue.terraform_queue.arn}"
+}
